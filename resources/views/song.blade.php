@@ -10,6 +10,9 @@
         @foreach($song->comments as $comment)
             Le {{$comment->created_at}}, {{$comment->user->name}} à écrit {{$comment->texte}}
         @endforeach
+
+    @else
+        <h4>Il n'y a pas encore de commentaires ...</h4>
     @endif
 
     @if(Auth::check())
