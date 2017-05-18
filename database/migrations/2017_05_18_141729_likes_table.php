@@ -13,7 +13,12 @@ class LikesTable extends Migration
      */
     public function up()
     {
-        //
+        Schema::create('likes', function (Blueprint $table) {
+            $table->increments('id');
+            $table->integer('user_id');
+            $table->integer('song_id');
+            $table->timestamps();
+        });
     }
 
     /**
