@@ -15,12 +15,6 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');
-
-
-
 Route::get('/','General@index');
 Route::get('/song/{id}','General@song')->where('id','[0-9]+');
 Route::get('user/{id}','General@user')->where('id','[0-9]+');
@@ -37,3 +31,5 @@ Route::post('/song/store','General@StoreSong')->middleware("auth");
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('/logout','General@logout')->middleware("auth");

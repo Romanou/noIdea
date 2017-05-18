@@ -52,6 +52,12 @@ class General extends Controller
         return view('NewSong');
     }
 
+    public function logout()
+    {
+        Auth::logout();
+        return redirect('/');
+    }
+
     public function StoreSong(Request $request)
     {
         $this->validate($request,[

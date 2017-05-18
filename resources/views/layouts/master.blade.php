@@ -12,12 +12,7 @@
                     <li><a href="/login">Connexion</a></li>
                 @else
                     <li>
-                        <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
-                            Deconnexion
-                        </a>
-                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                            {{ csrf_field() }}
-                        </form>
+                        <a href="/logout">Deconnexion</a>
                     </li>
                     <li><a href="/song/new">Nouveau son</a></li>
                 @endif
