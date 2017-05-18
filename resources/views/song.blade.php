@@ -4,15 +4,13 @@
 
 @section('content')
     <h1>La page de la chanson {{$song->titre}}</h1>
-    <h4>Les commentaires</h4>
 
-    @foreach($song->comments as $comment)
-
-        Le {{$comment->created_at}}, {{$comment->user->name}} à écrit {{$comment->texte}}
-
-    @endforeach
-
-
+    @if(sizeof($song->comments) > 0)
+        <h4>Les commentaires</h4>
+        @foreach($song->comments as $comment)
+            Le {{$comment->created_at}}, {{$comment->user->name}} à écrit {{$comment->texte}}
+        @endforeach
+    @endif
 
     @if(Auth::check())
         @include('error')
