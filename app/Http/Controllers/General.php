@@ -66,26 +66,37 @@ class General extends Controller
         ]);
 
         $file = $request->file("song");
-        $s = new Song();
-        $s->titre = $request->input('title');
-        $url = Storage::url($file->store("song","public"));
-        $s->url = $url;
-        $s->user_id = Auth::id();
-        $s->times = 0;
-        $s->save();
 
-        return redirect("/song/".$s->id);
+        $extension = $file->getClientOriginalName();
+        $extension = explode(".",$extension);
+        $extension = end($extension);
+        $return = null;
+        if(strtoupper($extension) == "MP3"){
+            $s = new Song();
+            $s->titre = $request->input('title');
+            $url = Storage::url($file->store("song","public"));
+            $s->url = $url;
+            $s->user_id = Auth::id();
+            $s->times = 0;
+            $s->save();
+            $return = redirect("/song/".$s->id);
+        }else{
+            $return = view('NewSong',['error'=>"Nous n'acceptons que les fichiers .MP3 !"]);
+        }
+
+
+        return $return;
     }
 
     public function search(Request $request)
     {
         $this->validate($request,[
-            'item' => 'required|min:2',
+            'term' => 'required|min:2',
         ]);
 
-        $songs = Song::whereRaw("titre LIKE CONCAT('%',?,'%')",array($request->input('item')))
-        ->orderBy('created_at','desc')
-        ->get();
+        $songs = Song::whereRaw("titre LIKE CONCAT('%',?,'%')",array($request->input('term')))
+        ->orderBy('created_at','desc')->paginate(15);
+
 
         return view('index',['songs'=>$songs]);
     }

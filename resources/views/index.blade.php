@@ -1,6 +1,6 @@
 @extends("layouts.master")
-
 @section("title","Accueil")
+
 
 @section("content")
     <div class="col-12">
