@@ -8,5 +8,6 @@
         @foreach($songs as $song)
             <a href="/song/{{$song->id}}">{{$song->titre}}</a> uploadé par {{$song->user->name}} <br/>
         @endforeach
+        {{ $songs->links() }}
     </div>
 @endsection

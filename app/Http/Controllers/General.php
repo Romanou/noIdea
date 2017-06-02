@@ -14,7 +14,7 @@ class General extends Controller
 {
     public function index()
     {
-        $songs = Song::all();
+        $songs = Song::paginate(15);
         return view('index',['songs'=>$songs]);
     }
 
