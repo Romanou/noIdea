@@ -13,22 +13,26 @@
                     <li><a href="/login">Connexion</a></li>
                 @else
                     <li>
-                        <a href="/logout">Deconnexion</a>
-                    </li>
-                    <li>
                         <a href="/song/new">Nouveau son</a>
                     </li>
-                    <li class="search">
-                        <form action="/search" method="GET">
-                            <input type="search" name="term" placeholder="Une recherche ?" required>
-                            <input type="submit">
-                        </form>
+                    <li id="searchButton">
+                        Rechercher
+                    </li>
+                    <li>
+                        <a href="/logout">Deconnexion</a>
                     </li>
                 @endif
             </ul>
+            <div class="search">
+                <form action="/search" method="GET">
+                    <input type="search" name="term" placeholder="Une recherche ?" required>
+                    <input type="submit">
+                </form>
+            </div>
         </nav>
         <main class="container">
             @yield('content')
         </main>
+        <script src="/js/main.js"></script>
     </body>
 </html>
