@@ -2,28 +2,32 @@
     <head>
         <meta charset="UTF-8"/>
         <title>NoIedea - @yield('title')</title>
+        <link rel="stylesheet" href="/css/grid.css">
         <link rel="stylesheet" href="/css/style.css"/>
     </head>
     <body>
-        <header>
+        <nav id="header">
             <ul>
                 <li><a href="/">Accueil</a></li>
                 @if(!Auth::check())
                     <li><a href="/login">Connexion</a></li>
                 @else
                     <li>
-                        <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
-                            Deconnexion
-                        </a>
-                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                            {{ csrf_field() }}
+                        <a href="/logout">Deconnexion</a>
+                    </li>
+                    <li>
+                        <a href="/song/new">Nouveau son</a>
+                    </li>
+                    <li class="search">
+                        <form action="/search" method="GET">
+                            <input type="search" name="term" placeholder="Une recherche ?" required>
+                            <input type="submit">
                         </form>
                     </li>
-                    <li><a href="/song/new">Nouveau son</a></li>
                 @endif
             </ul>
-        </header>
-        <main>
+        </nav>
+        <main class="container">
             @yield('content')
         </main>
     </body>

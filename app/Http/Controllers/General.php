@@ -52,6 +52,12 @@ class General extends Controller
         return view('NewSong');
     }
 
+    public function logout()
+    {
+        Auth::logout();
+        return redirect('/');
+    }
+
     public function StoreSong(Request $request)
     {
         $this->validate($request,[
@@ -69,6 +75,18 @@ class General extends Controller
         $s->save();
 
         return redirect("/song/".$s->id);
-        
+    }
+
+    public function search(Request $request)
+    {
+        $this->validate($request,[
+            'item' => 'required|min:2',
+        ]);
+
+        $songs = Song::whereRaw("titre LIKE CONCAT('%',?,'%')",array($request->input('item')))
+        ->orderBy('created_at','desc')
+        ->get();
+
+        return view('index',['songs'=>$songs]);
     }
 }
