@@ -6,6 +6,11 @@
     <div class="col-12">
         <h1>La page de la chanson {{$song->titre}}</h1>
 
+        <audio controls="" preload="none">
+            <source src="{{$song->url}}">
+            Votre navigateur n'est pas compatible
+        </audio>
+
         @if($song->comments->count()>0)
             <h4>Les commentaires</h4>
             @foreach($song->comments as $comment)
