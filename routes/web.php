@@ -33,3 +33,6 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/logout','General@logout')->middleware("auth");
+
+//Search
+Route::get('/search','General@search');
