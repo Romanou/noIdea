@@ -17,6 +17,7 @@ class CreateImagesTable extends Migration
             $table->increments('id');
             $table->string('url');
             $table->integer('song_id');
+            $table->timestamps();
         });
     }
 

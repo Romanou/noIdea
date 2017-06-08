@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Comment;
 use App\Song;
+use App\Image;
 use App\User;
 
 use Illuminate\Http\Request;
@@ -62,16 +63,24 @@ class General extends Controller
     {
         $this->validate($request,[
            'title'=>'required|min:2',
-            'song'=>'required'
+            'song'=>'required',
+            'illustration'=>'required'
         ]);
 
         $song = $request->file("song");
 
-        $extension = $song->getClientOriginalName();
-        $extension = explode(".",$extension);
-        $extension = end($extension);
+        $extension_song = $song->getClientOriginalName();
+        $extension_song = explode(".",$extension_song);
+        $extension_song = end($extension_song);
+
+        $illustration = $request->file("illustration");
+
+        $extension_illustration = $illustration->getClientOriginalName();
+        $extension_illustration = explode(".",$extension_illustration);
+        $extension_illustration = end($extension_illustration);
+
         $return = null;
-        if(strtoupper($extension) == "MP3"){
+        if(strtoupper($extension_song) == "MP3" && strtoupper($extension_illustration) == "JPG"){
             $s = new Song();
             $s->titre = $request->input('title');
             $url = Storage::url($song->store("song","public"));
@@ -79,9 +88,15 @@ class General extends Controller
             $s->user_id = Auth::id();
             $s->times = 0;
             $s->save();
+
+            $i = new Image();
+            $i->song_id = $s->id;
+            $url = Storage::url($illustration->store("illustration","public"));
+            $i->url = $url;
+            $i->save();
             $return = redirect("/song/".$s->id);
         }else{
-            $return = view('NewSong',['error'=>"Nous n'acceptons que les fichiers .MP3 !"]);
+            $return = view('NewSong',['error'=>"Nous n'acceptons que les fichiers .MP3 pour les sons et .JPG pour les illustrations !"]);
         }
 
 

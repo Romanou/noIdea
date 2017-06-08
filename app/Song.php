@@ -18,6 +18,6 @@ class Song extends Model
 
     public function images()
     {
-        return $this->hasMany("App\Image");
+        return $this->hasOne("App\Image");
     }
 }
