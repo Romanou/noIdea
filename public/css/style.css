@@ -207,6 +207,7 @@ body{
 
 @media screen and (max-width: 765px) {
     #header{
-        background-color:red;
+        position:absolute;
+        top:0;
     }
 }
