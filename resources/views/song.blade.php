@@ -19,7 +19,7 @@
         @if($song->comments->count()>0)
             <h4>Les commentaires</h4>
             @foreach($song->comments as $comment)
-                Le {{$comment->created_at->format('d/m/Y à H\hi')}} par {{$comment->user->name}} : {{$comment->texte}},
+                Le {{$comment->created_at->format('d/m/Y à H\hi')}} par {{$comment->user->name}} : {{$comment->texte}}
                 @if($comment->created_at->format('d/m/Y à H\hi') != $comment->updated_at->format('d/m/Y à H\hi'))
                 Modifiée le {{$comment->updated_at->format('d/m/Y à H\hi')}}
                 @endif
