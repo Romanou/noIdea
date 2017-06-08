@@ -209,5 +209,13 @@ body{
     #header{
         position:absolute;
         top:0;
+        width:100%;
+        height:auto;
     }
+
+    #header div.menu{
+        height:80px;
+        background-color: #bd003a;
+    }
+
 }

@@ -9,6 +9,11 @@
     <body>
         <nav id="header">
             <div class="menu">
+                <div class="hamb">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
                 <div class="logo">
                     <a href="/">
                         NoIdea
