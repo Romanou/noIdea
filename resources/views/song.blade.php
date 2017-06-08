@@ -6,10 +6,15 @@
     <div class="col-12">
         <h1>La page de la chanson {{$song->titre}}</h1>
 
-        <audio controls="" preload="none">
-            <source src="{{$song->url}}">
-            Votre navigateur n'est pas compatible
-        </audio>
+        <div class="contain_song">
+            @if(isset($song->images))
+                <img src="{{$song->images->url}}" />
+            @endif
+            <audio controls="" preload="none">
+                <source src="{{$song->url}}">
+                Votre navigateur n'est pas compatible
+            </audio>
+        </div>
 
         @if($song->comments->count()>0)
             <h4>Les commentaires</h4>
