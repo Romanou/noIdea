@@ -65,16 +65,16 @@ class General extends Controller
             'song'=>'required'
         ]);
 
-        $file = $request->file("song");
+        $song = $request->file("song");
 
-        $extension = $file->getClientOriginalName();
+        $extension = $song->getClientOriginalName();
         $extension = explode(".",$extension);
         $extension = end($extension);
         $return = null;
         if(strtoupper($extension) == "MP3"){
             $s = new Song();
             $s->titre = $request->input('title');
-            $url = Storage::url($file->store("song","public"));
+            $url = Storage::url($song->store("song","public"));
             $s->url = $url;
             $s->user_id = Auth::id();
             $s->times = 0;
