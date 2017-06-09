@@ -817,13 +817,46 @@ div.form_box form button[type = "submit"] span{
     height:auto;
     width:100%;
     justify-content:center;
+    margin-bottom:10px;
 }
 
 #pagination ul li{
-
+    display:flex;
+    justify-content:center;
+    align-items:center;
     list-style:none;
     width:30px;
     height:30px;
+}
+
+#pagination ul li{
+    background-color:#bd003a;
+}
+
+#pagination ul li:not(.active):not(.disabled):hover{
+    background-color: #93002d !important;
+}
+
+#pagination ul li:first-child{
+    border-top-left-radius:5px;
+    border-bottom-left-radius:5px;
+}
+
+#pagination ul li:last-child{
+    border-top-right-radius:5px;
+    border-bottom-rigth-radius:5px;
+}
+
+#pagination ul li.disabled,
+#pagination ul li.active{
+    background-color:#fff;
+    color:#bd003a;
+}
+
+#last_songs h2{
+    font-size:20px;
+    padding:0 10px;
+    margin-bottom:30px;
 }
 
 @keyframes slideLeft{
