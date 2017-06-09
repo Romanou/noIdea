@@ -707,6 +707,30 @@ div.form_box form button[type = "submit"] span{
     padding-left:10px;
 }
 
+
+#song div.like form input[type="submit"]{
+    overflow:hidden;
+    position:relative;
+    z-index:20;
+    transition: all .5s;
+    margin:0;
+    border:none;
+    font-size:12px;
+    background-color:#710021;
+    color:#fff;
+    width:200px;
+    min-width:100px;
+    height:40px;
+    cursor:pointer;
+}
+
+#song div.like form input[type="submit"]:hover{
+    transition:all .3s;
+    background-color:#fff;
+    color:#710021;
+}
+
+
 #last_songs{
     position:relative;
     display:flex;
