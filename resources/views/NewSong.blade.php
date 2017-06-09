@@ -5,7 +5,7 @@
 @section("content")
     <div id="new_song" class="col-12">
         <div class="container">
-            <div class="form_box col-6 prepend-3">
+            <div class="form_box col-8 prepend-2">
                 <form method="post" action="/song/store" enctype="multipart/form-data">
                     <h3>Mettez en ligne votre propre son</h3>
                     @if(isset($error))
