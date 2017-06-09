@@ -14,9 +14,11 @@ use Illuminate\Support\Facades\Storage;
 
 class General extends Controller
 {
+    public $ele_par_page = 5;
+
     public function index()
     {
-        $songs = Song::paginate(15);
+        $songs = Song::paginate($this->ele_par_page);
         return view('index',['songs'=>$songs]);
     }
 
@@ -143,7 +145,7 @@ class General extends Controller
         ]);
 
         $songs = Song::whereRaw("titre LIKE CONCAT('%',?,'%')",array($request->input('term')))
-        ->orderBy('created_at','desc')->paginate(15);
+        ->orderBy('created_at','desc')->paginate($this->ele_par_page);
 
 
         return view('index',['songs'=>$songs]);
