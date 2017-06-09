@@ -14,7 +14,7 @@ use Illuminate\Support\Facades\Storage;
 
 class General extends Controller
 {
-    public $ele_par_page = 5;
+    public $ele_par_page = 3;
 
     public function index()
     {

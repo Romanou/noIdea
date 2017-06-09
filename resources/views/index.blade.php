@@ -16,7 +16,7 @@
                         @if(isset($song->images))
                             <img src="{{$song->images->url}}" />
                         @endif
-                        <div class="title">{{$song->titre}} envoyée par {{$song->user->name}}</div>
+                        <div class="title">{{$song->titre}}, par {{$song->user->name}}</div>
                     </a>
                 </div>
                 <?php $i++; ?>
