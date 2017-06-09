@@ -20,15 +20,17 @@
             Consulté : {{$song->times}} fois
         </div>
 
-        @if($song->ils_likent->count())
-            @if($song->ils_likent->count()> 1)
-                {{$song->ils_likent->count()}} Personnes aiment ça !
+        <div class="likes">
+            @if($song->ils_likent->count())
+                @if($song->ils_likent->count()> 1)
+                    {{$song->ils_likent->count()}} Personnes aiment ça !
+                @else
+                    {{$song->ils_likent->count()}} Personne aime ça !
+                @endif
             @else
-                {{$song->ils_likent->count()}} Personne aime ça !
+                Personne n'a encore aimé ce contenu !
             @endif
-        @else
-            Personne n'a encore aimé ce contenu !
-        @endif
+        </div>
 
         <div class="like">
             @if(!$song->ils_likent->contains(Auth::id()))

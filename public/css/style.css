@@ -689,6 +689,24 @@ div.form_box form button[type = "submit"] span{
     z-index:30;
 }
 
+#song div.vues{
+    animation:fade 1s;
+    padding:10px 0;
+    font-size:15px;
+    text-align:right;
+}
+
+#song div.likes{
+    animation:fade 1s;
+    padding-left:10px;
+}
+
+#song div.like{
+    margin-top:10px;
+    animation:fade 1s;
+    padding-left:10px;
+}
+
 #last_songs{
     position:relative;
     display:flex;
