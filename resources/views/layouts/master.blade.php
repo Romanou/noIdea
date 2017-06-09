@@ -9,6 +9,7 @@
     </head>
     <body>
         <nav id="header">
+            <div class="black_screen"></div>
             <div class="menu">
                 <div class="hamb">
                     <span></span>
