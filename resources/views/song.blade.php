@@ -16,6 +16,33 @@
             </audio>
         </div>
 
+        @if($song->ils_likent->count())
+            @if($song->ils_likent->count()> 1)
+                {{$song->ils_likent->count()}} Personnes aiment ça !
+                @else
+                {{$song->ils_likent->count()}} Personne aime ça !
+            @endif
+        @else
+            Personne n'a encore aimé ce contenu !
+        @endif
+
+        <div class="like">
+            @if(!$song->ils_likent->contains(Auth::id()))
+            <form method="POST" action="/song/like">
+                {{csrf_field()}}
+                <input type="hidden" value="{{$song->id}}" name="song_id" />
+                <input type="submit" value="J'aime !" name="like"/>
+            </form>
+            @else
+
+            <form method="POST" action="/song/unlike">
+                {{csrf_field()}}
+                <input type="hidden" value="{{$song->id}}" name="song_id" />
+                <input type="submit" value="Je n'aime plus !" name="Unlike"/>
+            </form>
+            @endif
+        </div>
+
         <div class="comments">
             @if($song->comments->count()>0)
                 <h4>Les commentaires</h4>

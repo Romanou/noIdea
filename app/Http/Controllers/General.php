@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Comment;
+use App\Likes;
 use App\Song;
 use App\Image;
 use App\User;
@@ -98,6 +99,36 @@ class General extends Controller
         }else{
             $return = view('NewSong',['error'=>"Nous n'acceptons que les fichiers .MP3 pour les sons et .JPG pour les illustrations !"]);
         }
+
+
+        return $return;
+    }
+
+    public function LikeSong(Request $request)
+    {
+        $this->validate($request,[
+            'song_id'=>'required',
+        ]);
+
+        $song_id = $request->input("song_id");
+        $s = Song::find($song_id);
+        $s->ils_likent()->attach(Auth::id());
+        return back();
+
+
+        return $return;
+    }
+
+    public function UnlikeSong(Request $request)
+    {
+        $this->validate($request,[
+            'song_id'=>'required',
+        ]);
+
+        $song_id = $request->input("song_id");
+        $s = Song::find($song_id);
+        $s->ils_likent()->detach(Auth::id());
+        return back();
 
 
         return $return;

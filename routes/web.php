@@ -28,6 +28,8 @@ Route::post('/comment/store/{id}','General@StoreComment')->where('id','[0-9]+')-
 Route::get('/song/new','General@NewSong')->middleware("auth");
 
 Route::post('/song/store','General@StoreSong')->middleware("auth");
+Route::post('/song/like','General@LikeSong')->middleware("auth");
+Route::post('/song/unlike','General@UnlikeSong')->middleware("auth");
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');

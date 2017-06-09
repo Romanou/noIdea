@@ -20,4 +20,12 @@ class Song extends Model
     {
         return $this->hasOne("App\Image");
     }
+
+    /*public function likes(){
+        return $this->hasMany("App\Likes");
+    }*/
+
+    public function ils_likent(){
+        return $this->belongsToMany("App\Song","likes","user_id","song_id");
+    }
 }
