@@ -26,6 +26,10 @@
             Personne n'a encore aimé ce contenu !
         @endif
 
+        <div class="vues">
+            Consulté {{$song->times}} fois.
+        </div>
+
         <div class="like">
             @if(!$song->ils_likent->contains(Auth::id()))
             <form method="POST" action="/song/like">

@@ -23,6 +23,8 @@ class General extends Controller
     public function song($id)
     {
         $song = Song::find($id);
+        $song->times = $song->times + 1;
+        $song->save();
         return view('song',['song'=>$song]);
     }
 
