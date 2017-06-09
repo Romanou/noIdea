@@ -15,7 +15,7 @@
 
 body{
     margin:0;
-    padding:80px 0 0 0;
+    padding:100px 0 0 0;
     background-color:#202020;
     color:#e1e1e1;
 }
@@ -28,6 +28,7 @@ body{
     }
 
     #header{
+        animation:slide .5s;
         position:fixed;
         top:0;
         left:0;
@@ -49,6 +50,10 @@ body{
         -moz-box-shadow: 0px 0px 30px 0px rgba(0,0,0,0.75);
         box-shadow: 0px 0px 30px 0px rgba(0,0,0,0.75);
      }
+
+    #header div.menu *{
+        animation:fade 1s;
+    }
 
     #header div.menu div.logo{
         position:relative;
@@ -215,6 +220,74 @@ body{
     #header div.menu div.hamb{
         display:none;
     }
+
+
+    #song div.comment_form form button:before{
+        transition:left .5s;
+        content:"";
+        position:absolute;
+        top:0;
+        left:-100%;
+        height:100%;
+        width:100%;
+        background-color:#fff;
+    }
+
+    #song div.comment_form form button:hover span{
+        transition:color .5s;
+        color:#710021;
+    }
+
+    #song div.comment_form form button:hover:before{
+        transition:left .5s;
+        content:"";
+        position:absolute;
+        top:0;
+        left:0;
+    }
+
+    #song div.comment_form form button:hover{
+        transition:all .5s;
+        transform:scale(1.1);
+        cursor:pointer;
+        -webkit-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
+        -moz-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
+        box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
+    }
+
+    div.form_box form button[type = "submit"]:before{
+        transition:left .5s;
+        content:"";
+        position:absolute;
+        top:0;
+        left:-100%;
+        height:100%;
+        width:100%;
+        background-color:#fff;
+    }
+
+    div.form_box form button[type = "submit"]:hover span{
+        transition:color .5s;
+        color:#710021;
+    }
+
+    div.form_box form button[type = "submit"]:hover:before{
+        transition:left .5s;
+        content:"";
+        position:absolute;
+        top:0;
+        left:0;
+    }
+
+    div.form_box form button[type = "submit"]:hover{
+        transition:all .5s;
+        transform:scale(1.1);
+        cursor:pointer;
+        -webkit-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
+        -moz-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
+        box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
+    }
+
 }
 
 
@@ -226,7 +299,9 @@ body{
     }
 
     #header{
-        position:absolute;
+        animation:slide .5s;
+        position:fixed;
+        z-index:300;
         top:0;
         width:100%;
         height:auto;
@@ -314,6 +389,7 @@ body{
     }
 
     #header div.menu ul{
+        z-index:150px;
         position:absolute;
         top:80px;
         left:-100%;
@@ -394,4 +470,240 @@ body{
         outline:none;
     }
 
+}
+
+#main{
+    max-width:1150px;
+    margin:auto;
+}
+
+#main div.last_songs h2{
+    text-align:center;
+}
+
+
+#new_song{
+    animation:zoom .5s;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    height:calc(100vh - 100px);
+}
+
+div.form_box{
+    z-index: 100;
+    display:flex;
+    position:relative;
+    justify-content:center;
+    align-items:center;
+    height:auto;
+}
+
+div.form_box form{
+    display:flex;
+    flex-direction:column;
+    width:100%;
+    background-color: #bd003a;
+    -webkit-box-shadow: 0px 0px 30px 0px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 0px 30px 0px rgba(0,0,0,0.75);
+    box-shadow: 0px 0px 30px 0px rgba(0,0,0,0.75);
+    padding:10px;
+    margin:10px;
+}
+
+div.form_box form h3{
+    width:calc(100% + 20px);
+    margin:-10px 0 20px -10px;
+    box-sizing:border-box;
+    padding:30px 10px;
+    background-color:#710021;
+    font-size:18px;
+    height:40px;
+    display:flex;
+    align-items:center;
+}
+
+div.form_box form label{
+    color:#fff;
+    font-size:15px;
+    text-decoration:underline;
+}
+
+div.form_box form label,
+div.form_box form input:not([type="submit"]){
+    margin-bottom:5px;
+    border:none;
+}
+
+div.form_box form label:not(:first-child){
+    margin-top:10px;
+}
+
+div.form_box form input:not([type = "file"]),
+div.form_box form button[type = "submit"]{
+    height:40px;
+    background-color:transparent;
+    border-bottom:2px solid #fff;
+}
+
+div.form_box form input:not([type = "file"]),
+div.form_box form input:not([type = "file"])::placeholder{
+    color:#fff;
+    font-size:13px;
+}
+
+div.form_box form input:not([type = "file"]):active,
+div.form_box form input:not([type = "file"]):focus{
+    outline:none;
+}
+
+
+div.form_box form button[type = "submit"]{
+    overflow:hidden;
+    position:relative;
+    z-index:20;
+    transition: all .5s;
+    margin:30px auto 0 auto;
+    border:none;
+    font-size:12px;
+    background-color:#710021;
+    color:#fff;
+    width:30%;
+    min-width:100px;
+}
+
+div.form_box form button[type = "submit"] span{
+    transition:color .5s;
+    color:inherit;
+    position:relative;
+    z-index:30;
+}
+
+
+#song{
+    animation:zoom .5s;
+    position:relative;
+}
+
+#song h3{
+    text-align:center;
+}
+
+#song div.contain_song img{
+    object-fit:cover;
+    width:100%;
+    height:400px;
+}
+#song div.contain_song audio{
+    width:100%;
+}
+
+#song div.comments{
+    position:relative;
+    display:flex;
+    flex-direction:column;
+    width:100%;
+    height:auto;
+}
+
+#song div.comments h4{
+    box-sizing:border-box;
+    padding:0 10px;
+}
+
+#song div.comments div.comment {
+    box-sizing: border-box;
+    padding: 20px;
+    margin:10px;
+    color:#252525;
+    background-color: #fff;
+    -webkit-box-shadow: 0px 0px 30px 0px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: 0px 0px 30px 0px rgba(0, 0, 0, 0.75);
+    box-shadow: 0px 0px 30px 0px rgba(0, 0, 0, 0.75);
+}
+
+#song div.comments div.comment div.user{
+    color:#fff;
+    text-align:left;
+    background-color:#bd003a;
+    padding:20px;
+    margin:-20px 0 10px -20px;
+    width:100%;
+}
+
+#song div.comments div.comment div.content{
+    box-sizing:border-box;
+    padding:20px 0;
+    text-align:justify;
+}
+
+#song div.comments div.comment div.date{
+    text-align:right;
+}
+
+#song div.comment_form{
+    margin:30px 10px 10px 10px;
+}
+
+#song div.comment_form form{
+    display:flex;
+    flex-direction: column;
+}
+
+#song div.comment_form form textarea{
+    min-width:100%;
+    max-width:100%;
+    min-height:200px;
+}
+
+#song div.comment_form form button{
+    overflow:hidden;
+    position:relative;
+    z-index:20;
+    transition: all .5s;
+    margin:10px 0 0 0;
+    border:none;
+    font-size:12px;
+    background-color:#710021;
+    color:#fff;
+    height:40px;
+    width:30%;
+    min-width:200px;
+}
+
+#song div.comment_form form button span{
+    transition:color .5s;
+    color:inherit;
+    position:relative;
+    z-index:30;
+}
+
+@keyframes slide{
+    0%{
+        transform:translateY(-80px);
+    }
+    100%{
+        transform:translateY(0);
+    }
+}
+
+@keyframes fade{
+    0%{
+        opacity:0;
+    }
+    30%{
+       opacity:0;
+    }
+    100%{
+        opacity:1;
+    }
+}
+
+@keyframes zoom{
+    0%{
+        transform: scale(0);
+    }
+    100%{
+        transform:scale(1);
+    }
 }

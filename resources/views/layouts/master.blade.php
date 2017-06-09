@@ -53,7 +53,7 @@
                 </form>
             </div>
         </nav>
-        <main class="container">
+        <main id="main" class="container">
             @yield('content')
         </main>
         <script src="/js/main.js"></script>
