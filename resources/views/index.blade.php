@@ -24,6 +24,9 @@
         @else
             <h4>Pas de musiques ...</h4>
         @endif
-        {{ $songs->links() }}
+
+        <div id="pagination">
+            {{ $songs->links() }}
+        </div>
     </div>
 @endsection
