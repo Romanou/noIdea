@@ -16,19 +16,19 @@
             </audio>
         </div>
 
+        <div class="vues">
+            Consulté : {{$song->times}} fois
+        </div>
+
         @if($song->ils_likent->count())
             @if($song->ils_likent->count()> 1)
                 {{$song->ils_likent->count()}} Personnes aiment ça !
-                @else
+            @else
                 {{$song->ils_likent->count()}} Personne aime ça !
             @endif
         @else
             Personne n'a encore aimé ce contenu !
         @endif
-
-        <div class="vues">
-            Consulté {{$song->times}} fois.
-        </div>
 
         <div class="like">
             @if(!$song->ils_likent->contains(Auth::id()))
