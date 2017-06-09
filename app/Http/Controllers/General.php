@@ -118,9 +118,6 @@ class General extends Controller
         $s = Song::find($song_id);
         $s->ils_likent()->attach(Auth::id());
         return back();
-
-
-        return $return;
     }
 
     public function UnlikeSong(Request $request)
@@ -133,9 +130,6 @@ class General extends Controller
         $s = Song::find($song_id);
         $s->ils_likent()->detach(Auth::id());
         return back();
-
-
-        return $return;
     }
 
     public function search(Request $request)

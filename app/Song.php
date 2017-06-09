@@ -26,6 +26,6 @@ class Song extends Model
     }*/
 
     public function ils_likent(){
-        return $this->belongsToMany("App\Song","likes","user_id","song_id");
+        return $this->belongsToMany("App\User","likes","song_id","user_id");
     }
 }

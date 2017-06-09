@@ -39,6 +39,7 @@
                 <input type="hidden" value="{{$song->id}}" name="song_id" />
                 <input type="submit" value="J'aime !" name="like"/>
             </form>
+
             @else
 
             <form method="POST" action="/song/unlike">

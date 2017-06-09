@@ -33,7 +33,7 @@ class User extends Authenticatable
         return $this->hasMany("App\Song");
     }
 
-    public function like(){
-        return $this->belongsToMany("App\Song","likes","user_id","song_id");
+    public function likent(){
+        return $this->belongsToMany("App\Song","likes","song_id","user_id");
     }
 }
