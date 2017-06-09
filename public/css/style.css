@@ -76,7 +76,7 @@ body{
         justify-content:center;
         align-items:center;
         height:auto;
-        width:auto;
+        width:100%;
         text-indent:-999999px;
     }
 
